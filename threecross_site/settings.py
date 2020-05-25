@@ -25,7 +25,7 @@ SECRET_KEY = '5$1xen5n46ut=sw7nx@fh-4&9(0ukf__ww)bev8j%go5ufsmm5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dev.3cross.coop']
 
 
 # Application definition
