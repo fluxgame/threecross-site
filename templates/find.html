@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if on_accounts|length > 0 %}
+        <h2>On Draught</h2>
+        <p class="center">Find 3cross beers on draught at these fine establishments.</p>
+        {%  include 'fragments/account_list.html' with accounts=on_accounts %}
+    {% endif %}
+    {% if off_accounts|length > 0 %}
+        <h2>In Cans</h2>
+        <p class="center">Find cans of 3cross beer at these shops.</p>
+        {%  include 'fragments/account_list.html' with accounts=off_accounts %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Join Our Mailing List</h2>
+
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="https://3crossbrewing.us12.list-manage.com/subscribe/post-json?u=02ee68ee085cdf02cbd6fa41d&amp;id=889c9f68fa&c=?" method="get" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>	
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+		<input type="text" name="b_02ee68ee085cdf02cbd6fa41d_889c9f68fa" tabindex="-1" value="">
+	</div>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+	<span id="signup_failed">Sorry, something went wrong. Check your input and try again.</span>
+</form>
+</div>
+<p class="centered" id="signup_successful">Thanks! Please check your email to confirm your subscription.</p>
+
+
+<!--End mc_embed_signup-->
+
+<h2>Get in Touch</h2>
+
+<p>Have you checked out our <a href="/faq">FAQ</a>? We receive many inquires and most of the common questions are answered there. Please give it a look. We're a small operation, so we are unable to respond individually to questions that are addressed in the FAQ. We need to spend our time making beer!</p>
+<div class="row centered">
+	<div class="col-md-6">
+		<p class="centered"><br/>
+			3cross Fermentation Cooperative<br/>
+			26 Cambridge Street<br/>
+			(4 Knowlton Ave for your GPS)<br/>
+			Worcester, MA 01603<br/>
+		</p>
+	</div>
+	<div class="col-md-6">
+		<h4>Press Inquiries</h4>
+		Please send press inquiries to <a href="mailto:press@3cross.coop">press@3cross.coop</a>.<br/>
+		<strong>Please note that messages sent to this address of a non-press nature will be ignored and reported as spam.</strong>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,200 @@
+[
+  {
+    "model": "pages.question",
+    "pk": 1,
+    "fields": {
+      "text": "What's with the bikes?",
+      "answer": "Our name references the classic spoke lacing pattern for a bicycle wheel and you'll find elements of bicycle lore and culture throughout the brewery. Since we're cyclists as well as beer lovers, we aim to make 3cross the ideal place to end your next ride.",
+      "sort_order": 10
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 2,
+    "fields": {
+      "text": "Do you make your own beer?",
+      "answer": "Yup, we make all the beer we serve in our taproom on-site.",
+      "sort_order": 20
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 3,
+    "fields": {
+      "text": "Do you make gluten-free beer?",
+      "answer": "No we don't. Sorry.",
+      "sort_order": 30
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 4,
+    "fields": {
+      "text": "How about wine/cider/liquor?",
+      "answer": "Our current licensing doesn't allow us to produce or serve alcoholic products other than beer. It's something we're considering for the future though!",
+      "sort_order": 40
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 5,
+    "fields": {
+      "text": "Do you have any non-alcoholic beverage options?",
+      "answer": "We offer house-made fountain sodas and tap water. Check our <a href=\"/on_tap\">taplist</a> page for current offerings.",
+      "sort_order": 50
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 6,
+    "fields": {
+      "text": "Do you serve food?",
+      "answer": "We don't serve food in the taproom. We do have a semi-regular schedule of pop-up restaurant events though. Check the <a href=\"/events\">events</a> page.",
+      "sort_order": 60
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 7,
+    "fields": {
+      "text": "Can I purchase a gift card?",
+      "answer": "Sure, we have gift cards available for sale in the taproom.",
+      "sort_order": 70
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 8,
+    "fields": {
+      "text": "Can I bring my dog/cat/iguana/capybara with me?",
+      "answer": "Well behaved pets are welcome in our taproom, as long as they remain leashed and under their owner's control at all times. We do reserve the right to request that a disruptive pet be removed.",
+      "sort_order": 80
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 9,
+    "fields": {
+      "text": "Are kids allowed in the taproom?",
+      "answer": "We are a kid-friendly establishment as long as minors are accompanied and supervised by a parent or legal guardian.",
+      "sort_order": 90
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 10,
+    "fields": {
+      "text": "Can I book the taproom for a private event?",
+      "answer": "Unfortunately, we aren't able to accommodate private parties during our regular taproom hours. If you're interested in something at another time, <a href=\"mailto:taproom@3cross.coop\">give us a shout</a> and we'll see if we can make it work.",
+      "sort_order": 100
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 11,
+    "fields": {
+      "text": "Can I bring a group to celebrate a special occasion?",
+      "answer": "As long as you don't need any special accommodations, sure, come on by! Our taproom has open seating though and can get quite busy (particularly during <a href=\"#events\">events</a>), so plan accordingly if you'll be coming during prime hours. If you'll be bringing a large group (more than 20), we always appreciate a <a href=\"mailto:taproom@3cross.coop\">heads up</a>.",
+      "sort_order": 110
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 12,
+    "fields": {
+      "text": "Can I bring my own food to eat with my beer?",
+      "answer": "Absolutely! We even have a pile of takeout menus from some great local restaurants.",
+      "sort_order": 120
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 13,
+    "fields": {
+      "text": "I don't like/can't drink beer. Can I bring a bottle of wine or other alcohol to enjoy while my friends drink beer?",
+      "answer": "Sorry, but that's a hard no. Our liquor license doesn't allow for any outside alcohol on the premises.",
+      "sort_order": 130
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 14,
+    "fields": {
+      "text": "Do you offer tours of the brewery?",
+      "answer": "We don't offer formal tours, but the brewery area is visible over a half-height wall from the taproom. Have a look and let us know if you have any questions about the process!",
+      "sort_order": 140
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 15,
+    "fields": {
+      "text": "What's your growler filling policy?",
+      "answer": "We fill our own 750mL and 2L glass and stainless steel growlers. We will also fill blank dark glass swing-top or stainless steel vessels of the same size as ours that have a factory marking indicating their volume. Sorry, but MA state law doesn't allow us to fill growlers with the branding of other breweries. We think this goes without saying, but all growlers must be clean. We do not have the facilities to clean growlers behind the bar.",
+      "sort_order": 150
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 16,
+    "fields": {
+      "text": "How do I clean my growler?",
+      "answer": "Once you've enjoyed the beer contained within, we recommend immediately rinsing thoroughly (2-3 times) with very hot water. Then, allow it to air dry upside down with the cap off. Leave the cap off until it's been filled again. Never use dish soap to clean a growler.",
+      "sort_order": 160
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 17,
+    "fields": {
+      "text": "Can you donate beer/merchandise/money to my charitable event/organization?",
+      "answer": "We're a very small operation but are committed to giving back to our community. We have established two avenues for charitable giving:</p><ul><li>We have made the commitment through <a href=\"\"http://www.onepercentfortheplanet.org/\"\" target=\"\"#blank\"\">1% for the Planet</a> to donate 1% of all our sales to non-profit organizations that benefit environmental causes. If you are a 1%ftP non-profit member and would like to work with us, <a href=\"\"mailto:donations@3cross.coop\"\">get in touch</a>.</li><li>We have instituted a \"\"Charity of the Month\"\" program, where cash tips are donated to a designated charity. Organizations are nominated \nby and voted upon by our coop membership.</li></ul><p>Unfortunately, we aren't able to make donations to other organizations at this time and due to the volume of donation requests we receive we are not able to respond to requests that do not fit these criteria.",
+      "sort_order": 170
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 18,
+    "fields": {
+      "text": "Can I buy a keg of 3cross beer to help celebrate a special occasion?",
+      "answer": "Subject to availability, we can arrange to have a keg sent to a local liquor store for you to purchase. <a href=\"mailto:info@3cross.coop\">Contact us</a> for more details.",
+      "sort_order": 180
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 19,
+    "fields": {
+      "text": "I own a bar/restaurant/package store and I'd like to carry your beer. Can I buy kegs/bottles?",
+      "answer": "We work with Atlas Distributing to service our retail partners. If your establishment is within their distribution area, please contact them. Unfortunately, we do not have the capacity to distribute outside of this area.",
+      "sort_order": 190
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 20,
+    "fields": {
+      "text": "I'm looking for a job in the brewing industry. Are you hiring?",
+      "answer": "Not right now. We'll post any job openings on our website when they are available.",
+      "sort_order": 200
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 21,
+    "fields": {
+      "text": "I have a great product or service that would benefit your business. Who do I talk to about purchasing it?",
+      "answer": "You may send information about your product or service to <a href=“mailto:solicitations@3cross.coop”>solicitations@3cross.coop</a>. If we are interested we will respond promptly. Unfortunately, due to the number of requests we receive of this nature, we are not able to respond to requests that are not a good fit for our business. Please do not send emails to other email addresses within our organization, please do not send multiple requests, and please do not subscribe us to your mailing list. Any of these actions will result in us ignoring all of your communications and reporting your messages as spam.",
+      "sort_order": 210
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 22,
+    "fields": {
+      "text": "I have another question that isn't answered above.",
+      "answer": "Sounds interesting! <a href=\"mailto:info@3cross.coop\">Send us an email</a> and we'll do our best to answer.",
+      "sort_order": 220
+    }
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "model": "accounts.account",
+    "pk": 1,
+    "fields": {
+      "name": "Atlas Distributing",
+      "address": "44 Southbridge St",
+      "city": "Auburn",
+      "website": "",
+      "type": "OF",
+      "parent_account": null,
+      "show_on_web": false
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 2,
+    "fields": {
+      "name": "Austin Liquors",
+      "address": "117 Gold Star Blvd",
+      "city": "Worcester",
+      "website": "http://austinliquors.com",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 3,
+    "fields": {
+      "name": "Austin Liquors",
+      "address": "20 Boston Turnpike",
+      "city": "Shrewsbury",
+      "website": "http://austinliquors.com",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 4,
+    "fields": {
+      "name": "Colony One",
+      "address": "683 Southbridge Street",
+      "city": "Auburn",
+      "website": "",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 5,
+    "fields": {
+      "name": "Julio's Liquors",
+      "address": "140 Turnpike Road",
+      "city": "140 Turnpike Road",
+      "website": "http://juliosliquors.com",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 6,
+    "fields": {
+      "name": "Marlborough Wine & Spirits",
+      "address": "44 Boston Post Road West",
+      "city": "Marlborough",
+      "website": "http://marlborowine.com",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 7,
+    "fields": {
+      "name": "McKinlay's Liquors",
+      "address": "624 Main Street",
+      "city": "Holden",
+      "website": "http://facebook.com/McKinlays",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 8,
+    "fields": {
+      "name": "BirchTree Bread Company",
+      "address": "138 Green St #5",
+      "city": "Worcester",
+      "website": "http://birchtreebreadcompany.com",
+      "type": "ON",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  },
+  {
+    "model": "accounts.account",
+    "pk": 9,
+    "fields": {
+      "name": "Austin Liquors",
+      "address": "370 Park Ave",
+      "city": "Worcester",
+      "website": "http://austinliquors.com",
+      "type": "OF",
+      "parent_account": 1,
+      "show_on_web": true
+    }
+  }
+]

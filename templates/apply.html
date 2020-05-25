@@ -1,0 +1,114 @@
+<h2>3cross Membership Application</h2>
+			<form id="coop-app-form" action="/resources/coop_signup.php" method="post">
+				<div class="row">
+					<p class="center"><span class="important">IMPORTANT</span></p>
+					<p>Please fill out this application with <strong>your</strong> information. If you'd like to give a membership as a gift, you can purchase a gift card in the amount of the membership fee, but the recipient must fill out the application themselves.</p>
+				</div>
+				<div class="row">
+					<div class="col">
+						<input type="text" name="first_name" placeholder="First Name" required="">
+					</div>
+					<div class="col">
+						<input type="text" name="last_name" placeholder="Last Name" required="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<input type="text" name="address1" placeholder="Street Address" required="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<input type="text" name="address2" placeholder="Unit # (Optional)">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6" id="citybox">
+						<input type="text" name="city" id="city" placeholder="City" required="">
+					</div>
+					<div class="col-2" id="statebox">
+						<input type="text" name="state" id="state" placeholder="State" required="">
+					</div>
+					<div class="col-4" id="zipbox">
+						<input type="text" name="postal_code" id="zip" placeholder="Postal Code" required="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<input type="tel" name="phone" placeholder="Phone Number" required="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<input type="email" name="email" placeholder="Email Address" required="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col" id="certbox">
+						<p><strong>Affimation of No Other Beneficial Interest</strong></p>
+						<input type="checkbox" name="bene" required/>
+						<label for="bene"><span class="important">This is important, please read carefully!</span> Massachusetts law prohibits ownership of a manufacturer of alcoholic beverages by anyone who has an ownership interest in either a retailer or wholesaler of alcoholic beverages. I affirm that I have no beneficial interest, directly or indirectly, in any business licensed under MGL c138 §§12 (retail on-premise), MGL c138 §§15 (retail off-premise) and no more than one business licensed under MGL c138 §§18 (wholesaler). <span class="important">If you have any question as to whether this applies to you, please ask before submiting this application.</span></label>
+						<p><strong>Terms and Conditions</strong></p>
+						<input type="checkbox" name="tandc" required/>
+						<label for="tandc">I hereby apply for membership in 3cross Fermentation Cooperative under the terms and conditions of consumer membership contained in the <a href="bylaws.pdf" target="#blank">Bylaws</a> and amendments thereto, and the regulations enacted by the Board of Directors.</label>
+						<p><strong>Age Verification</strong></p>
+						<input type="checkbox" name="age" required/>
+						<label for="age">I verify that I am over the age of 21.</label>
+						<p><strong>Invoice</strong></p>
+						<input type="checkbox" name="invoice"/>
+						<label for="invoice">I won't be able to make it into the taproom, please send me an invoice that I can pay online.</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<textarea rows="1" name="why" placeholder="Why do you want to join our coop?" required="">
+</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<textarea rows="1" name="how_long" placeholder="When did you first hear about or visit 3cross?" required="">
+</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<textarea rows="1" name="skills" placeholder="What skills, expertise or other qualities would you be interested in sharing with the coop? (Optional)">
+</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<textarea rows="1" name="improve" placeholder="What do you think your membership fee would be best spent on?" required="">
+</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<textarea rows="1" name="referral" placeholder="If you were referred to the co-op by a current member, enter their name here.">
+</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="col"><div class="g-recaptcha" data-sitekey="6LcB0EEUAAAAAFAEGaAjoSFyPg0uhVT1YnGX0DkA" data-callback="recaptcha_callback" data-expired-callback="recaptch_expired_callback"></div>
+​<script type="text/javascript">
+	function recaptcha_callback() {
+		$('#coop-app-submit').removeAttr('disabled');
+	};
+	
+	function recaptch_expired_callback() {
+		$('#coop-app-submit').addAttr('disabled');
+	};
+</script>						
+					</div>
+					</div>
+					<div class="col">
+						<input disabled="disabled" type="submit" value="Submit Application" class="button" id="coop-app-submit"/>
+					</div>
+				</div>
+			</form>
+						<p class="centered" id="coop_app_processing">Processing application...</p>
+						<p class="error centered" id="coop_submit_failed">There was an error while submitting your application. Please <a href="#apply">try again</a> later. Sorry for the inconvenience. If this error persists, please send us an email at <a href="mailto:info@3cross.coop">info@3cross.coop</a></p>
+						<p class="centered" id="coop_submit_successful_no_invoice">Your application has been received. Next time you're in the taproom let us know you've completed the application and we'll process your payment.</p>
+						<p class="centered" id="coop_submit_successful_invoice">Your application has been received. We'll send you an invoice to pay your equity contribution soon.</p>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+<h2>What to Expect</h2>
+<h3>Ordering</h3>
+<p>
+We offer beer in a variety of formats for either on-site enjoyment or to bring home with you.
+If you would like a drink to savor in our taproom, we offer beer in 125mL, 300mL and 425mL servings. 
+Due to their higher alcohol content, some of our beers are only offered in 125mL and 300mL servings.
+If you're looking for a libation to take home, we offer all of our beers in 750mL and 2L growlers and many are also available as 4-packs of 16oz cans.
+Please note that growlers and cans are for off-site consumption only.
+</p>
+<h3>Tipping</h3>
+<p>
+Because all of our workers are paid a fair, living wage and share in the ownership of the business we have decided to adopt a tip-free policy in our taproom. While we appreciate your desire to thank your beertender for a job well done, how about buying another round for the table or some bottles to go, rather than a cash gratutiy? We have instituted a "Charity of the Month" program and any cash tips will be donated to the designated charity at the end of the month. Want to help decide who that money goes to? That's one of the perks of <a href="#cooperate">membership</a>!
+</p>
+<h3>Seating</h3>
+<p>
+We have some seating available at the bar for those visiting in ones and twos as well as tables for those in larger parties.
+Our beertenders do their best to make it to the tables to clear your empties and take additional orders, but when things get busy your best bet is to come order at the bar.
+</p>
+<h3>Food</h3>
+<p>
+We don't serve food in our taproom. Our focus is on making the best beer we possibly can. 
+However, you are more than welcome to bring food with you to nosh on while you're here. 
+There are a number of restaurants to order from within a small radius of our location, there's a full supermarket within easy walking distance and we invite food trucks and pop-up restaurants to serve up eats from time to time. 
+</p>
+<h2>Getting Here</h2>
+<h3>Directions</h3>
+        <p>Our taproom is located in the basement of 26 Cambridge Street, at the rear of the building. Our parking lot and entrance are located on Knowlton Avenue. For those of you who've been in Worcester a while, we're in the space that was home to Playoff Entertainment. We're admittedly a little hard to find, but promise that it's worth the effort!</p>
+<h3>Parking</h3>
+<p>
+Being a bike themed brewery we hope that you'll ride down to 3cross whenever possible. We have plenty of places to stash your bike inside.
+We have a good-sized parking lot available for those of you driving, but it does fill up when it gets busy. There is also limited on-street parking, but please be considerate of our neighbors.
+</p>
+</div>
+<div id="map">
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyB7jJFSCOcfgL4fxRnnrmqv8pEfHFhVNN0"></script>
+        <div style="overflow:hidden;height:300px;width:100%;"><div id="gmap_canvas" style="height:300px;width:100%;"></div>
+        <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+        <a class="google-map-code" href="http://www.mapsembed.com" id="get-map-data">www.mapsembed.com</a></div>
+        <script type="text/javascript"> function init_map(){var myOptions = {zoom:15,center:new google.maps.LatLng(42.244075,-71.8304129),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(42.244075, -71.8304129)});infowindow = new google.maps.InfoWindow({content:"<b>3cross Fermentation Coop</b><br/>4 Knowlton Ave<br/>Worcester, MA 01603" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div>
+{% endblock %}

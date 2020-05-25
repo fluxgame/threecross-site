@@ -1,0 +1,24 @@
+{% for account in accounts %}
+    {% if forloop.counter0|divisibleby:3 == 1 %}
+        <div class="row">
+        {% if forloop.last %}
+            <div class="col-md-4"></div>
+        {% endif %}
+        {% if forloop.revcounter == 2 %}
+            <div class="col-md-2"></div>
+        {% endif %}
+    {% endif %}
+            <div class="col-md-4">
+                <h3>{{ account.name }}</h3>
+                <p class="center">
+                    {{ account.address }}<br/>
+                    {{ account.city }}, MA<br/>
+                {% if account.website != Empty %}
+                    <a target="new" href="{{ account.website }}">{{ account.website }}</a>
+                {% endif %}
+                </p>
+            </div>
+    {% if forloop.counter|divisibleby:3 == 1 or forloop.last %}
+        </div>
+    {% endif %}
+{%  endfor %}
