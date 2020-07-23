@@ -1,57 +1,47 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from .models import Question
-from accounts.models import Account
-
-# Create your views here.
+from users.models import User
 
 
-def home_view(request, *args, **kwargs):
-    return render(request, "home.html", {"name": "home"})
+def page_view(request, *args, **kwargs):
+    page_name = request.resolver_match.url_name
+    page_info = page_list[page_name] if page_name in page_list else {}
+
+    return render(request, page_name + ".html", {'page_list': page_list, **kwargs, **page_info})
 
 
-def about_view(request, *args, **kwargs):
-    return render(request, "about.html", {"name": "about"})
+def shop_view(request, *args, **kwargs):
+    return redirect("https://biermi.com/store/3crossfermentation/store")
 
 
-def cooperate_view(request, *args, **kwargs):
-    return render(request, "cooperate.html", {"name": "cooperate"})
+page_list = {
+    'about': {},
+    'cooperate': {},
+    'visit': {},
+    'find': {
+        'verbose': 'find our beer',
+        "on_accounts": sorted(
+            User.objects.filter(is_active=True).filter(groups__name="On-Premise Retail"),
+            key=lambda t: t.sort_name,
+            reverse=False),
+        "off_accounts": sorted(
+            User.objects.filter(is_active=True).filter(groups__name="Off-Premise Retail"),
+            key=lambda t: t.sort_name,
+            reverse=False),
+    },
+    'sustainability': {},
+    'faq': {"faqs": Question.objects.all().order_by('sort_order')},
+    'shop': {'view': shop_view},
+    'contact': {},
+    'profile': {'verbose': "members' portal", 'external': True},
+}
 
-
-def visit_view(request, *args, **kwargs):
-    return render(request, "visit.html", {"name": "visit"})
-
-
-def find_view(request, *args, **kwargs):
-    on_accounts = sorted(
-        Account.objects.filter(show_on_web=True).filter(type=Account.ON),
-        key=lambda t: t.sort_name,
-        reverse=False
-    )
-    off_accounts = sorted(
-        Account.objects.filter(show_on_web=True).filter(type=Account.OFF),
-        key=lambda t: t.sort_name,
-        reverse=False
-    )
-
-    return render(request, "find.html", {
-        "name": "find our beer",
-        "id": "find",
-        "on_accounts": on_accounts,
-        "off_accounts": off_accounts
-    })
-
-
-def sustainability_view(request, *args, **kwargs):
-    return render(request, "sustainability.html", {"name": "sustainability"})
-
-
-def faq_view(request, *args, **kwargs):
-    return render(request, "faq.html", {
-        "name": "faq",
-        "faqs": Question.objects.all().order_by('sort_order')
-    })
-
-
-def contact_view(request, *args, **kwargs):
-    return render(request, "contact.html", {"name": "contact"})
+for page_name, page_info in page_list.items():
+    if 'verbose' not in page_info:
+        page_info['verbose'] = page_name
+    if 'view' not in page_info:
+        page_info['view'] = page_view
+    if 'navbar' not in page_info:
+        page_info['navbar'] = True
+    if 'external' not in page_info:
+        page_info['external'] = False

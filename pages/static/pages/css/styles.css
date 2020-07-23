@@ -50,7 +50,7 @@ header {
 	left: 50%;
 	bottom: 1em;
 	border: 1px solid black;
-	background: rgba(200,200,200,0.9);
+	background: rgba(200,200,200,1);
 	-webkit-border-radius: 1em;
 	-moz-border-radius: 1em;
 	border-radius: 1em;
@@ -68,7 +68,7 @@ header {
 	}
 }
 
-@media (min-width: 801px) {
+@media (min-width: 851px) {
 
 	nav {
 		margin-top: 1em;
@@ -88,7 +88,7 @@ header {
 		margin-left: 1em;
 	}
 
-	nav ul li a {
+	nav ul li a, nav ul li span {
 		color: #ccc;
 		cursor: pointer;
 		text-decoration: none;
@@ -117,15 +117,15 @@ header {
 	border: 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
 	/* Button styling */
 	.menu-toggle {
 		display: inline-block;
 		float: right;
-		padding: .75em 15px;
+		padding: .5em;
 		line-height: 1em;
-		font-size: 2em;
+		font-size: 1.5em;
 		color: white;
 	}
 
@@ -143,11 +143,12 @@ header {
 		right: -200px;
 		top: 0;
 		height: 100%;
+		/*opacity: 0.99;*/
 		overflow-y: scroll;
 		overflow-x: visible;
 		transition: right 0.3s ease,
 		box-shadow 0.3s ease;
-		z-index: 999;
+		z-index: 2000;
 	}
 
 	.main-menu ul {
@@ -155,14 +156,14 @@ header {
 		margin: 0;
 		padding: 2.5em 0 0;
 		/* Hide shadow w/ -8px while 'closed' */
-		-webkit-box-shadow: -8px 0 8px rgba(0,0,0,.5);
-		-moz-box-shadow: -8px 0 8px rgba(0,0,0,.5);
-		box-shadow: -8px 0 8px rgba(0,0,0,.5);
+		-webkit-box-shadow: -8px 0 8px rgba(0,0,0,1);
+		-moz-box-shadow: -8px 0 8px rgba(0,0,0,1);
+		box-shadow: -8px 0 8px rgba(0,0,0,1);
 		min-height: 100%;
 		width: 200px;
 		background: #1a1a1a;
 	}
-	
+
 	.main-menu a {
 		display: block;
 		padding: .75em 15px;
@@ -191,23 +192,23 @@ header {
 	.main-menu[aria-expanded="true"] {
 		right: 0;
 		outline: none;
-		-moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
-		-webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
-		box-shadow: 3px 0 12px rgba(0,0,0,.25);
+		-moz-box-shadow: 3px 0 12px rgba(0,0,0,1);
+		-webkit-box-shadow: 3px 0 12px rgba(0,0,0,1);
+		box-shadow: 3px 0 12px rgba(0,0,0,1);
 	}
 
 	.main-menu:target .menu-close,
 	.main-menu[aria-expanded="true"] .menu-close {
-		z-index: 1001;
+		z-index: 2010;
 	}
 
 	.main-menu:target ul,
 	.main-menu[aria-expanded="true"] ul {
 		position: relative;
-		z-index: 1000;
+		z-index: 2001;
 	}
 
-	/* 
+	/*
 	We could us `.main-menu:target:after`, but
 	it wouldn't be clickable.
 	*/
@@ -220,9 +221,9 @@ header {
 		top: 0;
 		width: 100%;
 		height: 100%;
-		z-index: 998;
+		z-index: 2000;
 		background: #000;
-		background: rgba(0,0,0,.85);
+		background: rgba(0,0,0,1);
 		cursor: default;
 	}
 
@@ -260,7 +261,7 @@ header {
 	width: 33%;
 }
 
-@media (max-width: 800px) and (orientation:portrait) {
+@media (max-width: 850px) and (orientation:portrait) {
 	#logo {
 		margin-left: -40%;
 		margin-top: -40%;
@@ -268,7 +269,7 @@ header {
 	}
 }
 
-@media (max-width: 800px) and (orientation:landscape) {
+@media (max-width: 850px) and (orientation:landscape) {
 	#logo {
 		margin-left: -25%;
 		margin-top: -16.4%;
@@ -280,22 +281,27 @@ header {
 	width: 100%;
 }
 
-/*.drawer:target {*/
-/*	top: 10%;*/
-/*	height: 90%;*/
-/*}*/
+@keyframes slideUp {
+	from {
+		top: 100%;
+		height: 0;
+	}
+	to {
+		top: 10%;
+		height: 90%;
+	}
+}
 
 .drawer {
-	z-index: 999;
+	z-index: 1000;
 	position: absolute;
-	/*top: 100%;*/
-	/*height: 0;*/
 	top: 10%;
 	height: 90%;
+	animation-name: slideUp;
+	animation-duration: 1s;
 	width: 70%;
 	margin-left: 15%;
 	overflow: scroll;
-	transition: all 1s;
 	background: rgba(200,200,200,0.9);
 	-webkit-border-top-left-radius: 1em;
 	-webkit-border-radius-top-right-radius: 1em;
@@ -308,17 +314,25 @@ header {
 	border-right: 1px solid black;
 }
 
-@media (max-width: 800px) {
-	.drawer {
-		width: 95%;
-		margin-left: 2.5%;
-		top: 2.5%;
+@keyframes slideUpMobile {
+	from {
+		top: 100%;
+		height: 0;
+	}
+	to {
+		top: 3em;
 		height: 97.5%;
 	}
-	/*.drawer:target {*/
-	/*	top: 2.5%;*/
-	/*	height: 97.5%;*/
-	/*}*/
+}
+
+@media (max-width: 850px) {
+	.drawer {
+		width: 95%;
+		top: 5%;
+		height: 95%;
+		margin-left: 2.5%;
+		animation-name: slideUpMobile;
+	}
 }
 
 .container {
@@ -332,18 +346,16 @@ h1, h2, h3, h4, .centered {
 	text-align: center;
 }
 
-#map {
-	margin: 2em -2em -2em -2em;
-}
-
-h2 {
+h1, h2, h3 {
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
 
+/*
 h3 {
 	padding-top: 1em;
 }
+*/
 
 .closeToggle {
 	float: right;
@@ -352,7 +364,7 @@ h3 {
 	top: 0.5em !important;
 	right: .75em !important;
 	cursor: pointer;
-	z-index: 2000;
+	z-index: 1001;
 	text-decoration: none;
 }
 
@@ -376,78 +388,12 @@ details {
 	margin-left: 1em;
 }
 
-#contact h3 {
-	padding-bottom: 1em;
+form {
+    margin: 0 auto;
+	max-width: 30em;
 }
 
-#contact h4 {
-	padding-top: 1em;
-}
-
-#donation_address, #signup_successful, #signup_failed, #coop_submit_successful_invoice, #coop_submit_successful_no_invoice, #coop_submit_failed, #coop_app_processing {
-	display: none;
-}
-
-#donation_show, #donation_show:hover {
-	cursor: pointer;
-	text-decoration: underline;
-}
-
-#mc-embedded-subscribe, #mce-EMAIL, #donation_show:focus ~ #donation_address {
-	display: inline !important;
-}
-
-#signup_failed {
-	color: red;
-}
-
-#events, #events .container {
-	padding: 0;
-}
-
-.event-tile-container {
-	padding: 0;
-	margin: 0;
-	-ms-box-orient: horizontal;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	flex-wrap: wrap;
-}
-.event-tile {
-	background-color: rgba(200,200,200,0.9);
-	background-repeat: no-repeat;
-	background-size: 100%;
-	border-radius: 1em;
-	-webkit-border-radius: 1em;
-	-moz-border-radius: 1em;
-	border: 1px solid black;
-	padding: 1em;
-	margin: 0.5em;
-	width: 17.5em;
-}
-
-.event-tile-image:before {
-	content: "";
-	display: block;
-	padding-top: 100%;
-}
-
-#about p {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 40em;
-}
-
-#on_tap h4 {
-	padding-top: 1em;
-}
-
-input[type=text], input[type=email], input[type=tel], textarea {
+input[type=text], input[type=email], input[type=tel], input[type=password], textarea {
 	font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
 	font-size: 15px;
 	display: block;
@@ -497,41 +443,6 @@ input.button {
 	width: 35%;
 	margin: 0 0 10px 0;
 	min-width: 90px;
-}                
-
-#mce-EMAIL {
-	width: 58%;
-	min-width: 130px;
-	margin: 0 4% 10px 0;
-}
-
-#coop-app-submit {
-	min-width: 10em;
-	width: 100%;
-}
-
-#apply .container {
-	padding: 1em;
-}
-
-#apply div {
-	padding: .125em;
-}
-#apply form {
-    margin: 0 auto;	
-	max-width: 30em;
-}
-
-#apply {
-	text-align: left;
-}
-#certbox input, #certbox label {
-	display: inline;
-}
-
-.g-recaptcha {
-	margin: 0 auto;
-    width: 304px;
 }
 
 .important {
@@ -539,25 +450,21 @@ input.button {
 	color: red;
 }
 
-#coop-app-submit {
+input[type=submit] {
 	border: 1px solid #d3d3d3;
 	background: #f9f9f9;
 	color: black;
 	margin: auto;
 	margin-top: 8px;
-	height: 76px;
-	width: 152px;
 	font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
-}
-
-input:disabled#coop-app-submit, input[disabled]#coop-app-submit { 
-        box-shadow: none;
-        outline: none;
-        opacity: 0.1;
-        text-decoration: none;
 }
 
 #faq details ul {
 	margin-left: 2em;
 	margin-right: 2em;
+}
+
+.errorlist {
+	color: red;
+	list-style: none;
 }

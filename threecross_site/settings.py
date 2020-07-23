@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.core.exceptions import ImproperlyConfigured
+
+try:
+    TARGET_ENV = os.environ["TARGET_ENV"]
+except KeyError:
+    raise ImproperlyConfigured("The TARGET_ENV environment variable is not set")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,28 +24,96 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5$1xen5n46ut=sw7nx@fh-4&9(0ukf__ww)bev8j%go5ufsmm5'
+if TARGET_ENV == "dev":
+    DEBUG = True
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+    SECRET_KEY = '5$1xen5n46ut=sw7nx@fh-4&9(0ukf__ww)bev8j%go5ufsmm5'
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dev.3cross.coop']
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.3cross.coop']
+    RECAPTCHA_PRIVATE_KEY = '6Lf-3vwUAAAAAJOOKAkPGVuzRbLCufOGyF1qKr6-'
+    RECAPTCHA_PUBLIC_KEY = '6Lf-3vwUAAAAAN4FHfONQWPxB95Hr49Vt6JyV-kj'
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'root': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    }
+elif TARGET_ENV == "prod":
+    DEBUG = False
+
+    SECRET_KEY = '=s^n22&zed393#0l@qyq*_r$&5^xftqb7-80lcc3-5kn8xb#6q'
+    ALLOWED_HOSTS = ['3cross.coop', 'staging.3cross.coop']
+
+    RECAPTCHA_PRIVATE_KEY = '6LcR3_wUAAAAAHGszXMSD-yh7SRM2tCUIPmqQVuL'
+    RECAPTCHA_PUBLIC_KEY = '6LcR3_wUAAAAAPIHFzHCJF82hgXe2RuZ9P-mq9mR'
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+COMPRESS_ENABLED = True
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_CORE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'threecross.apps.ThreecrossConfig',
+    'django.contrib.sites',
+]
+
+THIRD_PARTY_APPS = [
+    'snowpenguin.django.recaptcha3',
+    # 'dj_authentication',
+    'cuser',
+    # 'phonenumber_field',
+    # "compressor",
+    # "dateutil",
+    # "bs4",
+    # "django_extensions",
+    # "dateparser",
+    'crispy_forms',
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    # 'account.socialaccount.providers.facebook',
+    # 'account.socialaccount.providers.yahoo',
+]
+
+MY_APPS = [
     'items',
     'pages',
-    'accounts',
+    'businesses',
+    'members',
+    'transactions',
+    'users',
+    'addresses',
+    'surveys',
 ]
+
+INSTALLED_APPS = DJANGO_CORE_APPS + THIRD_PARTY_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +123,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'dj_authentication.request_http_auth.HTTPAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'threecross_site.urls'
@@ -56,8 +131,7 @@ ROOT_URLCONF = 'threecross_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,18 +146,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'threecross_site.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# REQUEST_USER_BACKENDS = [
+#     'dj_authentication.methods.bearer',
+#     'django.contrib.auth',
+# ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# OPENID_PROVIDER = 'dj_authentication.openid:SimpleDjangoProvider'  # for tokens sent in email verification messages
 
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
+# MAP_ID_TO_USER_FUNC = 'dj_authentication.user_mappings:map_email'
+
+# os.environ['GOOGLE_AUTH_URL'] = 'https://client_id@accounts.google.com'
+# os.environ['FACEBOOK_AUTH_URL'] = 'facebook+https://app_id@facebook.com'
+
+AUTH_USER_MODEL = 'users.User'
+AUTH_GROUP_MODEL = 'users.Group'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -119,3 +195,34 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.dirname(BASE_DIR) + '/public/static/'
+
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0
+
+PHONENUMBER_DEFAULT_REGION = 'US'
+
+LOGIN_URL = '/members/login/'
+LOGIN_REDIRECT_URL = 'profile'
+ACCOUNT_LOGOUT_ON_GET = True
+
+AUTHENTICATION_BACKENDS = (
+ "django.contrib.auth.backends.ModelBackend",
+ "allauth.account.auth_backends.AuthenticationBackend",
+ )
+
+SITE_ID = 1
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email', ],
+        'AUTH_PARAMS': {'access_type': 'online',},
+    }
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

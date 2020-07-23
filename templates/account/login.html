@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load account socialaccount %}
+
+{% block head_title %}sign in{% endblock %}
+
+{% block content %}
+
+<h1>Sign In</h1>
+
+    <div class="row">
+        <div class="col">
+        {% if redirect_field_value %}
+            {% if user.is_authenticated %}
+                <p class="centered">Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+            {% else %}
+                <p class="centered">Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+
+
+    <form method="post" action="{% url 'account_login' %}">
+    {% if form.non_field_errors %}
+        <div class="row">
+            <div class="col centered">{{ form.non_field_errors }}</div>
+        </div>
+    {% endif %}
+        <div class="row">
+            <div class="col">
+                {{ form.login }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form.password }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col centered">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                <input type="hidden" name="redirect_field_name" value="{{ redirect_field_value }}">
+                {% endif %}
+                {{ form.captcha }}
+                {{ form.remember }} {{ form.remember.label|lower }}<br/>
+                <input type="submit" class="button" value="login">
+                <a href="{% url 'account_reset_password' %}">forgot password?</a>
+            </div>
+        </div>
+    </form>
+
+    <a href="{% provider_login_url 'google' %}">Google</a>
+
+{% endblock %}

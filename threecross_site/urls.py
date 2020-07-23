@@ -14,22 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from users import views as user_views
+from surveys import views as survey_views
+from pages.views import page_list
 
-from pages.views import home_view, faq_view, find_view, about_view, \
-    contact_view, cooperate_view, sustainability_view, visit_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view),
-    path('faq', faq_view),
-    path('find', find_view),
-    path('about', about_view),
-    path('contact', contact_view),
-    path('cooperate', cooperate_view),
-    path('sustainability', sustainability_view),
-    path('visit', visit_view),
+    path('', include('pages.urls')),
+    path('apply', user_views.apply_view, name='apply'),
+    path('members/', include('allauth.urls')),
+    path('members/', user_views.profile_view, name='profile'),
+    path('members/surveys/<slug:slug>,<int:id>', survey_views.survey_view, name="survey"),
+    path('ajax/survey_vote', survey_views.ajax_vote_view, name="survey_vote")
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

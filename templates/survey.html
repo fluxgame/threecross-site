@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{{ form.survey.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ form.survey.title }}</h1>
+    <form action="" method="POST">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <input type="submit" class="button" value="save"/>
+    </form>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
+
+{% block css %}
+{% endblock %}

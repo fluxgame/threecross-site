@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block head_title %}vote for charities{% endblock %}
+
+{% block content %}
+
+<h2>Charity Nominations</h2>
+
+<h3>Ground Rules:</h3>
+<ul>
+	<li>Nominate as many charitable organizations as you like.</li>
+	<li>Nominees must be bonafide 501(c)(3) charitable organizations.</li>
+	<li>At the end of every month, the organization with the most nominations will be designated as the next month's beneficiary.</li>
+	<li>Organizations are ineligible for two years following a donation.</li>
+</ul>
+    <ul class="errorlist">
+    {% for error in errors %}
+        <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+<table>
+    <thead>
+        <tr>
+            <th>Organization Name</th>
+            <th># of<br/>Nominations</th>
+            <th>Nominated?</th>
+        </tr>
+    </thead>
+	<tbody>
+    {% for field in form %}
+        <tr>
+            <td><a href="{{ field.field.question.short_name }}" target="#blank">{{ field.label }}</a></td>
+            <td>{{ field.field.question.vote_count }}</td>
+            <td>
+                <form method="post" data-nominate-charity-url="{% url 'survey_vote' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="question_id" value="{{ field.field.question.id }}"/>
+                    {{ field }}
+                    <input class="save_nomination_status" type="submit" name="nominate" value="Save"/>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+        <form action="" method="post">
+            {% csrf_token %}
+        <tr class="nominee">
+            <td class="nominee" colspan="2">
+                <input type="url" name="website" onblur="checkURL(this)" placeholder="Web Address of New Charity Nomination" required id="id_website">
+            </td>
+            <td><input id="nominate_button" class="button" type="submit" name="nominate_charity" value="Nominate"></td>
+        </tr>
+        </form>
+    </tbody>
+</table>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    function checkURL (input) {
+      let string = input.value;
+      if (!~string.indexOf("http")) {
+        string = "http://" + string;
+      }
+      input.value = string;
+      return input
+    }
+
+    bind_and_hide = function() {
+        $('.save_nomination_status').prop("hidden", true);
+
+        $("input:checkbox").change(function () {
+            let form = $(this).closest("form");
+            let row = $(this).closest("tr");
+            $.ajax({
+                url: form.attr("data-nominate-charity-url"),
+                type: "POST",
+                data: form.serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    row.find('td').eq(1).text(data.vote_count);
+                },
+                error: function(xhr, status, error) {
+                    alert('Error saving nomination!');
+                    $(this).prop("checked", $(this).prop("checked"))
+                }
+            });
+        });
+    }
+    $(document).ready(bind_and_hide);
+</script>
+{% endblock %}
+
+{% block css %}
+<style>
+.container ul {
+    margin: 2em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid black;
+	padding: .25em;
+}
+
+td + td {
+	text-align: center;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    background-color: dimgrey;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+#id_website {
+    width: 100%;
+}
+
+#nominate_button {
+    margin: 0;
+    width: auto;
+    display: inline;
+}
+
+.button:hover {
+	background-color: dimgrey;
+	color: white;
+}
+</style>
+{% endblock %}

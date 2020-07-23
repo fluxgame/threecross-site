@@ -1,0 +1,35 @@
+#events, #events .container {
+	padding: 0;
+}
+
+.event-tile-container {
+	padding: 0;
+	margin: 0;
+	-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.event-tile {
+	background-color: rgba(200,200,200,0.9);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border: 1px solid black;
+	padding: 1em;
+	margin: 0.5em;
+	width: 17.5em;
+}
+
+.event-tile-image:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}

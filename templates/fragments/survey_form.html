@@ -1,0 +1,18 @@
+{% load crispy_forms_tags %}
+
+{{ form|crispy }}
+{% comment %}
+{% for field in form %}
+    {% if field.errors %}
+    <div class="row">
+        <div class="col">
+            {{ field.errors }}
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col">
+            {{ field }} {{ field.label }}
+        </div>
+    </div>
+{% endfor %}{% endcomment %}

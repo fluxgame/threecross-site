@@ -1,0 +1,317 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1001,
+    "fields": {
+      "is_superuser": false,
+      "email": "1001",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1001,
+    "fields": {
+      "street": "44 Southbridge St",
+      "city": "Auburn",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1001
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1001,
+    "fields": {
+      "name": "Atlas Distributing",
+      "website": "",
+      "user_id": 1001
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1002,
+    "fields": {
+      "is_superuser": false,
+      "email": "1002",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1002,
+    "fields": {
+      "street": "117 Gold Star Blvd",
+      "city": "Worcester",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1002
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1002,
+    "fields": {
+      "name": "Austin Liquors",
+      "website": "http://austinliquors.com",
+      "user_id": 1002
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1003,
+    "fields": {
+      "is_superuser": false,
+      "email": "1003",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1003,
+    "fields": {
+      "street": "20 Boston Turnpike",
+      "city": "Shrewsbury",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1003
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1003,
+    "fields": {
+      "name": "Austin Liquors",
+      "website": "http://austinliquors.com",
+      "user_id": 1003
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1004,
+    "fields": {
+      "is_superuser": false,
+      "email": "1004",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1004,
+    "fields": {
+      "name": "Colony One",
+      "website": "",
+      "user_id": 1004
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1004,
+    "fields": {
+      "street": "683 Southbridge Street",
+      "city": "Auburn",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1004
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1005,
+    "fields": {
+      "is_superuser": false,
+      "email": "1005",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1005,
+    "fields": {
+      "name": "Julio's Liquors",
+      "website": "http://juliosliquors.com",
+      "user_id": 1005
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1005,
+    "fields": {
+      "street": "140 Turnpike Road",
+      "city": "Westborough",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1005
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1006,
+    "fields": {
+      "is_superuser": false,
+      "email": "1006",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1006,
+    "fields": {
+      "name": "Marlborough Wine & Spirits",
+      "website": "http://marlborowine.com",
+      "user_id": 1006
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1006,
+    "fields": {
+      "street": "44 Boston Post Road West",
+      "city": "Marlborough",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1006
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1007,
+    "fields": {
+      "is_superuser": false,
+      "email": "1007",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1007,
+    "fields": {
+      "name": "McKinlay's Liquors",
+      "website": "http://facebook.com/McKinlays",
+      "user_id": 1007
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1007,
+    "fields": {
+      "street": "624 Main Street",
+      "city": "Holden",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1007
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1008,
+    "fields": {
+      "is_superuser": false,
+      "email": "1008",
+      "is_staff": false,
+      "is_active": false,
+      "groups": [
+        4
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1008,
+    "fields": {
+      "name": "BirchTree Bread Company",
+      "website": "http://birchtreebreadcompany.com",
+      "user_id": 1008
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1008,
+    "fields": {
+      "street": "138 Green St #5",
+      "city": "Worcester",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1008
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1009,
+    "fields": {
+      "is_superuser": false,
+      "email": "1009",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1009,
+    "fields": {
+      "name": "Austin Liquors",
+      "website": "http://austinliquors.com",
+      "user_id": 1009
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1009,
+    "fields": {
+      "street": "370 Park Ave",
+      "city": "Worcester",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1009
+    }
+  }
+]

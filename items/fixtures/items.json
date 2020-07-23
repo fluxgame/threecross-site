@@ -1,0 +1,26 @@
+[
+  {
+    "model": "items.item",
+    "pk": 1,
+    "fields": {
+      "name": "Coop Membership",
+      "active": true
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 2,
+    "fields": {
+      "name": "Preferred Share",
+      "active": true
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 3,
+    "fields": {
+      "name": "Qualified Written Notice of Allocation",
+      "active": true
+    }
+  }
+]

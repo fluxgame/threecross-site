@@ -1,0 +1,86 @@
+[
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 1,
+    "fields": {
+      "survey": 1,
+      "short_name": "why",
+      "prompt": "Why do you want to join our coop?",
+      "required": true,
+      "order": 2,
+      "type": "FF"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 2,
+    "fields": {
+      "survey": 1,
+      "short_name": "when",
+      "prompt": "When did you first hear about or visit 3cross?",
+      "required": true,
+      "order": 3,
+      "type": "FF"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 3,
+    "fields": {
+      "survey": 1,
+      "short_name": "improvements",
+      "prompt": "What do you think your membership investment would be best spent on?",
+      "required": true,
+      "order": 5,
+      "type": "FF"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 4,
+    "fields": {
+      "survey": 1,
+      "short_name": "referral",
+      "prompt": "If you were referred to the co-op by a current member, enter their name here.",
+      "required": false,
+      "order": 6,
+      "type": "FF"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 5,
+    "fields": {
+      "survey": 1,
+      "short_name": "bene",
+      "prompt": "<span class=\"important\">This is important, please read carefully!</span> Massachusetts law prohibits ownership of a manufacturer of alcoholic beverages by anyone who has an ownership interest in either a retailer or wholesaler of alcoholic beverages. I affirm that I have no beneficial interest, directly or indirectly, in any business licensed under MGL c138 \u00a7\u00a712 (retail on-premise), MGL c138 \u00a7\u00a715 (retail off-premise) and no more than one business licensed under MGL c138 \u00a7\u00a718 (wholesaler). <span class=\"important\">If you have any question as to whether this applies to you, please ask before submitting this application.</span>",
+      "required": true,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 6,
+    "fields": {
+      "survey": 1,
+      "short_name": "t_and_c",
+      "prompt": "I hereby apply for membership in 3cross Fermentation Cooperative under the terms and conditions of consumer membership contained in the <a href=\"bylaws.pdf\" target=\"#blank\">Bylaws</a> and amendments thereto, and the regulations enacted by the Board of Directors.",
+      "required": true,
+      "order": 1,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 7,
+    "fields": {
+      "survey": 1,
+      "short_name": "skills",
+      "prompt": "What skills, expertise or other qualities would you be interested in sharing with the coop?",
+      "required": false,
+      "order": 4,
+      "type": "FF"
+    }
+  }
+]

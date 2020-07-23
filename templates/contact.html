@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
+{% block head_title %}contact us{% endblock %}
+
 {% block content %}
 
-<h2>Join Our Mailing List</h2>
-
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup">
-<form action="https://3crossbrewing.us12.list-manage.com/subscribe/post-json?u=02ee68ee085cdf02cbd6fa41d&amp;id=889c9f68fa&c=?" method="get" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>	
-    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-		<input type="text" name="b_02ee68ee085cdf02cbd6fa41d_889c9f68fa" tabindex="-1" value="">
-	</div>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-	<span id="signup_failed">Sorry, something went wrong. Check your input and try again.</span>
-</form>
-</div>
-<p class="centered" id="signup_successful">Thanks! Please check your email to confirm your subscription.</p>
-
-
-<!--End mc_embed_signup-->
+{#<h2>Join Our Mailing List</h2>#}
+{##}
+{#<!-- Begin MailChimp Signup Form -->#}
+{#<div id="mc_embed_signup">#}
+{#<form action="https://3crossbrewing.us12.list-manage.com/subscribe/post-json?u=02ee68ee085cdf02cbd6fa41d&amp;id=889c9f68fa&c=?" method="get" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>	#}
+{#    <div style="position: absolute; left: -5000px;" aria-hidden="true">#}
+{#		<input type="text" name="b_02ee68ee085cdf02cbd6fa41d_889c9f68fa" tabindex="-1" value="">#}
+{#	</div>#}
+{#	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>#}
+{#	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">#}
+{#	<span id="signup_failed">Sorry, something went wrong. Check your input and try again.</span>#}
+{#</form>#}
+{#</div>#}
+{#<p class="centered" id="signup_successful">Thanks! Please check your email to confirm your subscription.</p>#}
+{##}
+{##}
+{#<!--End mc_embed_signup-->#}
 
 <h2>Get in Touch</h2>
 
@@ -38,4 +40,37 @@
 		<strong>Please note that messages sent to this address of a non-press nature will be ignored and reported as spam.</strong>
 	</div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+$(function() {
+    $(document).ready(function () {
+        $('#mc-embedded-subscribe-form').submit(function (event) {
+            $form = $(this);
+            event.preventDefault();
+            if (!$form.valid()) return false;
+            $.ajax({
+                type: $form.attr('method'),
+                url: $form.attr('action'),
+                data: $form.serialize(),
+                cache: false,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                error: function (err) {
+                    $("#signup_failed").css("display", "block")
+                },
+                success: function (data) {
+                    if (data.result != "success") {
+                        $("#signup_failed").css("display", "block");
+                    } else {
+                        $("#mc_embed_signup").css("display", "none");
+                        $("#signup_successful").css("display", "block");
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
 {% endblock %}

@@ -1,0 +1,34 @@
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col">
+        {{ form.street.errors }}
+        {{ form.street|as_crispy_field }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form.unit.errors }}
+        {{ form.unit|as_crispy_field }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6" id="citybox">
+        {{ form.city.errors }}
+        {{ form.city|as_crispy_field }}
+    </div>
+    <div class="col-2" id="statebox">
+        {{ form.state.errors }}
+        {{ form.state|as_crispy_field }}
+    </div>
+    <div class="col-4" id="zipbox">
+        {{ form.postal_code.errors }}
+        {{ form.postal_code|as_crispy_field }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form.phone_number.errors }}
+        {{ form.phone_number|as_crispy_field }}
+    </div>
+</div>

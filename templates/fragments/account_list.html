@@ -9,13 +9,17 @@
         {% endif %}
     {% endif %}
             <div class="col-md-4">
-                <h3>{{ account.name }}</h3>
-                <p class="center">
-                    {{ account.address }}<br/>
-                    {{ account.city }}, MA<br/>
-                {% if account.website != Empty %}
-                    <a target="new" href="{{ account.website }}">{{ account.website }}</a>
+                <h3>
+                {% if account.business.website|length > 0 %}
+                    <a target="new" href="{{ account.business.website }}">{{ account.full_name }}</a>
+                {% else %}
+                    {{ account.full_name }}
                 {% endif %}
+                </h3>
+                <p class="center">
+                    {{ account.address.street }}<br/>
+                    {{ account.address.city }}, {{ account.address.state }} {{ account.address.postal_code }}<br/>
+
                 </p>
             </div>
     {% if forloop.counter|divisibleby:3 == 1 or forloop.last %}
