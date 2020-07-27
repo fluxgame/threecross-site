@@ -3,6 +3,8 @@
 {% block head_title %}cooperate{% endblock %}
 
 {% block content %}
+<div class="row justify-content-center">
+    <div class="col">
 		<h2>
 			Cooperate!
 		</h2>
@@ -49,6 +51,8 @@
 			I'm sold! How do I join?
 		</h3>
 		<p>
-			The first step is to <a href="/apply">fill out our membership application</a> here on our website. Please note that memberships are for a single person. If you would like to join the co-op as a couple or family, each individual will need to fill out the application. Once you've completed that you'll just need to make a $150 equity contribution. We'd prefer to have you come in to the taproom to do that (we want to get to know you!), but we understand that's not possible for some. If that's the case, we'll send you a link to make your equity contribution online by credit card.
+			The first step is to <a href="{% url 'apply' %}">fill out our membership application</a> here on our website. Please note that memberships are for a single person. If you would like to join the co-op as a couple or family, each individual will need to fill out the application. Once you've completed that you'll just need to make a $150 equity contribution. We'd prefer to have you come in to the taproom to do that (we want to get to know you!), but we understand that's not possible for some. If that's the case, we'll send you a link to make your equity contribution online by credit card.
 		</p>
+    </div>
+</div>
 {% endblock %}

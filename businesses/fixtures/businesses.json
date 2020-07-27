@@ -111,7 +111,7 @@
       "is_superuser": false,
       "email": "1004",
       "is_staff": false,
-      "is_active": true,
+      "is_active": false,
       "groups": [
         5
       ],
@@ -146,7 +146,7 @@
       "is_superuser": false,
       "email": "1005",
       "is_staff": false,
-      "is_active": true,
+      "is_active": false,
       "groups": [
         5
       ],
@@ -216,7 +216,7 @@
       "is_superuser": false,
       "email": "1007",
       "is_staff": false,
-      "is_active": true,
+      "is_active": false,
       "groups": [
         5
       ],
@@ -312,6 +312,146 @@
       "postal_code": "",
       "phone_number": "",
       "user_id": 1009
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1010,
+    "fields": {
+      "is_superuser": false,
+      "email": "1010",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1010,
+    "fields": {
+      "name": "Roots Natural Foods",
+      "website": "http://rootsnaturalfoods.com/",
+      "user_id": 1010
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1010,
+    "fields": {
+      "street": "100 Crawford Street",
+      "city": "Leominster",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1010
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1011,
+    "fields": {
+      "is_superuser": false,
+      "email": "1011",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1011,
+    "fields": {
+      "name": "Sonny's Liquors",
+      "website": "",
+      "user_id": 1011
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1011,
+    "fields": {
+      "street": "217 High Street",
+      "city": "Clinton",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1011
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1012,
+    "fields": {
+      "is_superuser": false,
+      "email": "1012",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1012,
+    "fields": {
+      "name": "Wachusett Wine & Spirits",
+      "website": "http://wachusettliquors.com/",
+      "user_id": 1012
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1012,
+    "fields": {
+      "street": "21 Franklin Street",
+      "city": "West Boylston",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1012
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1013,
+    "fields": {
+      "is_superuser": false,
+      "email": "1013",
+      "is_staff": false,
+      "is_active": true,
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "businesses.business",
+    "pk": 1013,
+    "fields": {
+      "name": "Wholesome Farmers Market",
+      "website": "http://facebook.com/wholesomefarmersmarket/",
+      "user_id": 1013
+    }
+  },
+  {
+    "model": "addresses.address",
+    "pk": 1013,
+    "fields": {
+      "street": "596 Summer Street",
+      "city": "Barre",
+      "state": "MA",
+      "postal_code": "",
+      "phone_number": "",
+      "user_id": 1013
     }
   }
 ]

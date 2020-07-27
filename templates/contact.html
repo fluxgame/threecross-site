@@ -3,7 +3,8 @@
 {% block head_title %}contact us{% endblock %}
 
 {% block content %}
-
+<div class="row justify-content-center">
+<div class="col">
 {#<h2>Join Our Mailing List</h2>#}
 {##}
 {#<!-- Begin MailChimp Signup Form -->#}
@@ -40,6 +41,8 @@
 		<strong>Please note that messages sent to this address of a non-press nature will be ignored and reported as spam.</strong>
 	</div>
 </div>
+</div>
+</div>
 {% endblock %}
 
 {% block javascript %}
@@ -73,4 +76,34 @@ $(function() {
     });
 });
 </script>
+{% endblock %}
+
+{% block css %}
+<style>
+#contact h3 {
+	padding-bottom: 1em;
+}
+
+#contact h4 {
+	padding-top: 1em;
+}
+
+#signup_successful, #signup_failed {
+	display: none;
+}
+
+#mc-embedded-subscribe, #mce-EMAIL, #donation_show:focus ~ #donation_address {
+	display: inline !important;
+}
+
+#signup_failed {
+	color: red;
+}
+
+#mce-EMAIL {
+	width: 58%;
+	min-width: 130px;
+	margin: 0 4% 10px 0;
+}
+</style>
 {% endblock %}

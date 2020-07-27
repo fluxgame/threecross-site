@@ -1,0 +1,20 @@
+[
+  {
+    "model": "pages.announcement",
+    "pk": 1,
+    "fields": {
+      "start_date": "2020-03-15",
+      "end_date": "2021-01-01",
+      "text": "Our taproom is currently closed for on-site consumption. We remain open for pickup of pre-ordered cans, growlers and merchandise. However, due to health and safety concerns for our staff, we are unable to fulfill in-person orders. Please place an order on our <a href=\"/shop\" target=\"new\">webstore</a> for curbside pickup at the brewery or delivery to your doorstep."
+    }
+  },
+  {
+    "model": "pages.announcement",
+    "pk": 2,
+    "fields": {
+      "start_date": "2020-07-09",
+      "end_date": "2021-01-01",
+      "text": "We're looking for an enthusiastic self-starter with excellent digital fluency, a knack for eye-catching visuals, superior communication skills and a deep understanding of social media marketing and content publishing. Is that you? Check out the full job posting <a href=\"https://docs.google.com/document/d/1-AuLA7rXqwcJgV3ArVrommS48pXlCAzqDD9ioflhJtY\" target=\"new\">here</a>."
+    }
+  }
+]

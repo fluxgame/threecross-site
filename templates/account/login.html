@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% load account socialaccount %}
 
 {% block head_title %}sign in{% endblock %}
@@ -8,7 +9,7 @@
 
 <h1>Sign In</h1>
 
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col">
         {% if redirect_field_value %}
             {% if user.is_authenticated %}
@@ -17,9 +18,17 @@
                 <p class="centered">Please login to see this page.</p>
             {% endif %}
         {% endif %}
-        </div>
-    </div>
+        {% for message in messages %}
+        <p class="centered">{{ message }}</p>
+        {% endfor %}
 
+    <p class="centered">
+        <a href="{% provider_login_url 'google' %}">
+            <img src="{% static 'pages/images/btn_google_signin_light_normal_web.png' %}" alt="Login with Google"/>
+        </a>
+    </p>
+
+    <p class="centered">or</p>
 
     <form method="post" action="{% url 'account_login' %}">
     {% if form.non_field_errors %}
@@ -44,13 +53,12 @@
                 <input type="hidden" name="redirect_field_name" value="{{ redirect_field_value }}">
                 {% endif %}
                 {{ form.captcha }}
-                {{ form.remember }} {{ form.remember.label|lower }}<br/>
-                <input type="submit" class="button" value="login">
-                <a href="{% url 'account_reset_password' %}">forgot password?</a>
+                <p class="centered">{{ form.remember }} {{ form.remember.label|lower }}</p>
+                <input type="submit" class="button" value="login"><br/>
+                <a class="button" href="{% url 'account_reset_password' %}">reset password</a>
             </div>
         </div>
     </form>
-
-    <a href="{% provider_login_url 'google' %}">Google</a>
-
+        </div>
+    </div>
 {% endblock %}

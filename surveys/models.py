@@ -12,6 +12,7 @@ class Survey(models.Model):
     max_responses = models.IntegerField(blank=False, null=False, default=0)
     template = models.CharField(max_length=128, blank=True, null=True)
     ajax_template = models.CharField(max_length=128, blank=True, null=True)
+    sort_questions = models.BooleanField(blank=False, null=False, default=False)
 
     def __str__(self):
         return self.title

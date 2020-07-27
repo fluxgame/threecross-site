@@ -6,9 +6,15 @@
 {% block content %}
 
 <h2>3cross Coop Members' Portal</h2>
-    <div class="row"><div class="col">
+    <div class="row justify-content-center"><div class="col">
+
 {% if request.user.member.common_share is not None %}
-    <p>Welcome, {{ request.user.member.first_name }}! (<a href="{% url 'account_logout' %}">logout</a>)</p>
+    {% for message in messages %}
+        <p class="centered">{{ message }}</p>
+    {% endfor %}
+    <p class="centered">Welcome, {{ request.user.member.first_name }}!</p>
+    <a class="button" href="{% url 'account_logout' %}">logout</a>
+    <a class="button" href="{% url 'account_change_password' %}">change password</a>
     <p>You have been a member since {{ request.user.member.common_share.date.date }}.</p>
     <p>Your current Capital Account balance is {{ request.user.member.ica_balance | currency }}.</p>
     {% if request.user.member.preferred_share_count > 0 %}
@@ -17,16 +23,14 @@
         <p>You don't own any Preferred Shares.</p>
     {% endif %}
     <p>Your current address on file is: {{ request.user.address.street }}, {% if request.user.address.unit|length > 0 %}{{ request.user.address.unit }}, {% endif %}{{ request.user.address.city }}, {{ request.user.address.state }} {{ request.user.address.postal_code }}.</p>
-    <p>Your current phone number on file is: {{ request.user.address.phone_number }}.</p>
+    <p>Your current phone number on file is: {{ request.user.address.phone_number.as_national }}.</p>
 {% comment %}
     <p>Your purchase total so far this year is {{ request.user.member.annual_purchases | currency}}.</p>
 {% endcomment %}
     <p>Make your voice heard:</p>
-    <ul>
     {% for survey in surveys %}
-        <li><a href="{{ survey.get_absolute_url }}">{{ survey.title }}</a></li>
+        <p><a href="{{ survey.get_absolute_url }}">{{ survey.title }}</a></p>
     {% endfor %}
-    </ul>
 {% else %}
     <p>Thank you for submitting your application. If you have not already done so, please head over to the <a target="new" href="{% url 'shop' %}">webstore</a> to make your equity contribution (by placing an order including the Coop Membership item). Once we have received your payment we will process your application. Please allow 24-48 hours for your application to be processed. Thanks!</p>
 {% endif %}

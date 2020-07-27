@@ -82,5 +82,451 @@
       "order": 4,
       "type": "FF"
     }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 8,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://abbyshouse.org",
+      "prompt": "Abby's House",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 9,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://aidsprojectworcester.org",
+      "prompt": "AIDS Project Worcester",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 10,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://gwlt.org",
+      "prompt": "Greater Worcester Land Trust",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 11,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://worcesterearnabike.org",
+      "prompt": "Worcester Earn-A-Bike",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 12,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://www.parkspirit.org/",
+      "prompt": "Park Spirit of Worcester",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 13,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://simonsaysgive.org",
+      "prompt": "Simon Says Give",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 14,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://genesisclub.org",
+      "prompt": "Genesis Club, Inc.",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 15,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://www.mareinc.org",
+      "prompt": "Massachusetts Adoption Resource Exchange",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 16,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://bbbscm.org",
+      "prompt": "Big Brothers Big Sisters of Central Mass",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 17,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://paptsd.org",
+      "prompt": "Pedal Against PTSD",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 18,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://virtualgivingtree.org",
+      "prompt": "Virtual Giving Tree",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 19,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://friendsofnewtonhill.org",
+      "prompt": "Friends of Newton Hill",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 20,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://unitedwaycm.org",
+      "prompt": "United Way of Central Massachusetts",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 21,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://necc.org",
+      "prompt": "New England Center for Children",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 22,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://pinkbootssociety.org",
+      "prompt": "Pink Boots Society",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 23,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://foodbank.org",
+      "prompt": "Worcester County Food Bank",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 24,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://liftworcester.org",
+      "prompt": "Living in Freedom Together (LIFT)",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 25,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://wcgcdc.org",
+      "prompt": "Worcester Common Ground CDC",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 26,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://stlukesguesthouse.wordpress.com",
+      "prompt": "St. Luke's Guest House",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 27,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://massbailfund.org",
+      "prompt": "Massachusetts Bail Fund",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 28,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://stjude.org",
+      "prompt": "St. Jude's Children's Hospital",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 29,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://lgbtasylum.org",
+      "prompt": "LGBT Asylum Task Force",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 30,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://safehomesma.org",
+      "prompt": "Safe Homes",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 31,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://childrenshospital.org",
+      "prompt": "Boston Children's Hospital",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 32,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://recworcester.org",
+      "prompt": "Regional Environmental Council",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 33,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://janefund.org",
+      "prompt": "Jane Fund",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 34,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://veteransinc.org",
+      "prompt": "Veterans Inc.",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 35,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://rachelstable.org",
+      "prompt": "Rachel's Table",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 36,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://communitylegal.org",
+      "prompt": "Community Legal Aid",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 37,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://mainsouthcdc.org",
+      "prompt": "Main South Community Development Corporation",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 38,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://habitatmwgw.org",
+      "prompt": "Habitat for Humanity Metro West/Greater Worcester",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 39,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://casaworcestercounty.org",
+      "prompt": "CASA Project",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 40,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://dismasisfamily.org",
+      "prompt": "Dismas House",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 41,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://stonesoupworcester.org",
+      "prompt": "Stone Soup",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 42,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://artsworcester.org",
+      "prompt": "Arts Worcester",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 43,
+    "fields": {
+      "survey": 2,
+      "short_name": "http://community-harvest.org",
+      "prompt": "Community Harvest Project",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
+  },
+  {
+    "model": "surveys.surveyquestion",
+    "pk": 44,
+    "fields": {
+      "survey": 2,
+      "short_name": "https://worcesterarl.org",
+      "prompt": "Worcester Animal Rescue League",
+      "required": false,
+      "order": 0,
+      "type": "YN"
+    }
   }
 ]
+
+

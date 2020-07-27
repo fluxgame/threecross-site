@@ -23,9 +23,22 @@ a {
 a:hover {
 	color: black;
 }
+
+.container {
+	padding: 2em;
+	width: 100%;
+	max-width: 60em;
+}
+
+.container .col {
+	max-width: 40em;
+}
+
 p {
 	text-align: justify;
 	text-indent: 1em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
 }
 
 p.center {
@@ -76,7 +89,8 @@ header {
 		float: right;
 	}
 
-	nav ul {
+	ul {
+		text-align: left;
 		list-style: none;
 	}
 
@@ -90,6 +104,7 @@ header {
 
 	nav ul li a, nav ul li span {
 		color: #ccc;
+		cursor: pointer;
 		cursor: pointer;
 		text-decoration: none;
 	}
@@ -335,13 +350,6 @@ header {
 	}
 }
 
-.container {
-	padding: 2em;
-	width: 100%;
-	max-width: 60em;
-	text-align: justify;
-}
-
 h1, h2, h3, h4, .centered {
 	text-align: center;
 }
@@ -386,6 +394,7 @@ h3 {
 details {
 	padding-bottom: 1em;
 	margin-left: 1em;
+	text-align: justify;
 }
 
 form {
@@ -414,13 +423,11 @@ textarea {
 	text-align: left;
 }
 
-.button {
+.button, input[type=submit] {
 	clear: both;
-	background-color: #aaa;
-	border: 0 none;
 	border-radius: 4px;
 	letter-spacing: .03em;
-	color: #FFFFFF;
+	color: black;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 15px;
@@ -430,38 +437,27 @@ textarea {
 	text-decoration: none;
 	vertical-align: top;
 	white-space: nowrap;
-	width: auto;
 	transition: all 0.23s ease-in-out 0s;
-}
-
-.button:hover {
-	background-color: #777;
-}
-
-input.button {
-	display: block;
+	border: 1px solid #d3d3d3;
+	background: #f9f9f9;
+	font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+	/*display: block;*/
 	width: 35%;
 	margin: 0 0 10px 0;
 	min-width: 90px;
 }
 
+.button:hover, input[type=submit]:hover {
+	background-color: #777;
+}
+
+a.button {
+	text-decoration: none;
+}
+
 .important {
 	font-weight: bold;
 	color: red;
-}
-
-input[type=submit] {
-	border: 1px solid #d3d3d3;
-	background: #f9f9f9;
-	color: black;
-	margin: auto;
-	margin-top: 8px;
-	font-family: "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
-}
-
-#faq details ul {
-	margin-left: 2em;
-	margin-right: 2em;
 }
 
 .errorlist {

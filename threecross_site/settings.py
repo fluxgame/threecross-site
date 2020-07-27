@@ -32,6 +32,8 @@ if TARGET_ENV == "dev":
 
     RECAPTCHA_PRIVATE_KEY = '6Lf-3vwUAAAAAJOOKAkPGVuzRbLCufOGyF1qKr6-'
     RECAPTCHA_PUBLIC_KEY = '6Lf-3vwUAAAAAN4FHfONQWPxB95Hr49Vt6JyV-kj'
+    GOOGLE_API_KEY = 'AIzaSyDoY2wYSMdlFs_4Y3oXKYOWa8LrMeNuwK8'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
     DATABASES = {
         'default': {
@@ -53,21 +55,32 @@ if TARGET_ENV == "dev":
             'level': 'DEBUG',
         },
     }
-elif TARGET_ENV == "prod":
+elif TARGET_ENV == "prod" or TARGET_ENV == "stage":
     DEBUG = False
 
     SECRET_KEY = '=s^n22&zed393#0l@qyq*_r$&5^xftqb7-80lcc3-5kn8xb#6q'
-    ALLOWED_HOSTS = ['3cross.coop', 'staging.3cross.coop']
-
     RECAPTCHA_PRIVATE_KEY = '6LcR3_wUAAAAAHGszXMSD-yh7SRM2tCUIPmqQVuL'
     RECAPTCHA_PUBLIC_KEY = '6LcR3_wUAAAAAPIHFzHCJF82hgXe2RuZ9P-mq9mR'
+    GOOGLE_API_KEY = 'AIzaSyCFx8zzGq66Jcc2ZrgU--unLgQH7Np7s6w'
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    if TARGET_ENV == 'prod':
+        ALLOWED_HOSTS = ['3cross.coop']
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
         }
+    else:
+        ALLOWED_HOSTS = ['staging.3cross.coop']
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
     }
+
+
 
 COMPRESS_ENABLED = True
 
@@ -87,11 +100,11 @@ THIRD_PARTY_APPS = [
     'snowpenguin.django.recaptcha3',
     # 'dj_authentication',
     'cuser',
-    # 'phonenumber_field',
+    'phonenumber_field',
     # "compressor",
     # "dateutil",
     # "bs4",
-    # "django_extensions",
+    "django_extensions",
     # "dateparser",
     'crispy_forms',
     "allauth",
@@ -204,6 +217,7 @@ PHONENUMBER_DEFAULT_REGION = 'US'
 LOGIN_URL = '/members/login/'
 LOGIN_REDIRECT_URL = 'profile'
 ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_REDIRECT_URL ="/members/login"
 
 AUTHENTICATION_BACKENDS = (
  "django.contrib.auth.backends.ModelBackend",

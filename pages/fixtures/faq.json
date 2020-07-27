@@ -174,8 +174,8 @@
     "model": "pages.question",
     "pk": 20,
     "fields": {
-      "text": "I'm looking for a job in the brewing industry. Are you hiring?",
-      "answer": "Not right now. We'll post any job openings on our website when they are available.",
+      "text": "I'd like to add some of your cans labels to my collection. Can you send me some?",
+      "answer": "Sure, you can purchase a pack of our labels on our <a href=\"/shop\" target=\"new\">webstore</a>.",
       "sort_order": 200
     }
   },
@@ -183,8 +183,8 @@
     "model": "pages.question",
     "pk": 21,
     "fields": {
-      "text": "I have a great product or service that would benefit your business. Who do I talk to about purchasing it?",
-      "answer": "You may send information about your product or service to <a href=“mailto:solicitations@3cross.coop”>solicitations@3cross.coop</a>. If we are interested we will respond promptly. Unfortunately, due to the number of requests we receive of this nature, we are not able to respond to requests that are not a good fit for our business. Please do not send emails to other email addresses within our organization, please do not send multiple requests, and please do not subscribe us to your mailing list. Any of these actions will result in us ignoring all of your communications and reporting your messages as spam.",
+      "text": "I'm looking for a job in the brewing industry. Are you hiring?",
+      "answer": "We are! We’re looking for an enthusiastic self-starter with excellent digital fluency, a knack for eye-catching visuals, superior communication skills and a deep understanding of social media marketing and content publishing. Is that you? Check out the full job posting <a href=\"https://docs.google.com/document/d/1-AuLA7rXqwcJgV3ArVrommS48pXlCAzqDD9ioflhJtY\" target=\"new\">here</a>.",
       "sort_order": 210
     }
   },
@@ -192,9 +192,18 @@
     "model": "pages.question",
     "pk": 22,
     "fields": {
+      "text": "I have a great product or service that would benefit your business. Who do I talk to about purchasing it?",
+      "answer": "You may send information about your product or service to <a href=“mailto:solicitations@3cross.coop”>solicitations@3cross.coop</a>. If we are interested we will respond promptly. Unfortunately, due to the number of requests we receive of this nature, we are not able to respond to requests that are not a good fit for our business. Please do not send emails to other email addresses within our organization, please do not send multiple requests, and please do not subscribe us to your mailing list. Any of these actions will result in us ignoring all of your communications and reporting your messages as spam.",
+      "sort_order": 220
+    }
+  },
+  {
+    "model": "pages.question",
+    "pk": 23,
+    "fields": {
       "text": "I have another question that isn't answered above.",
       "answer": "Sounds interesting! <a href=\"mailto:info@3cross.coop\">Send us an email</a> and we'll do our best to answer.",
-      "sort_order": 220
+      "sort_order": 230
     }
   }
 ]

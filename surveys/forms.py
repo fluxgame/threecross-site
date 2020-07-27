@@ -45,12 +45,21 @@ class FreeFormField(SurveyFieldMixin, forms.CharField):
 class SurveyResponseForm(forms.BaseForm):
     SURVEY_QUESTION_HTML_PREFIX = 'sq-'
 
-    def __init__(self, *args, survey, survey_response, **kwargs):
+    user = None
+    instance = None
+
+    def __init__(self, *args, survey, user, **kwargs):
         self.survey = survey
-        self.instance = survey_response
         self.base_fields = {}
-        for survey_question in survey.surveyquestion_set.all():
-            sqr = None if survey_response is None else survey_response.get_question_response_for(survey_question)
+        self.setUser(user)
+
+        if self.survey.sort_questions:
+            questions = survey.surveyquestion_set.order_by('prompt').all()
+        else:
+            questions = survey.surveyquestion_set.all()
+
+        for survey_question in questions:
+            sqr = None if self.instance is None else self.instance.get_question_response_for(survey_question)
             if survey_question.type == SurveyQuestion.YES_NO:
                 field = YesNoField(question=survey_question, response=sqr)
             elif survey_question.type == SurveyQuestion.FREEFORM:
@@ -62,17 +71,18 @@ class SurveyResponseForm(forms.BaseForm):
 
         super(SurveyResponseForm, self).__init__(*args, **kwargs)
 
+    def setUser(self, user):
+        self.instance = None if user is None else self.survey.get_response_for(user)
+
+    def is_valid(self):
+        return super(SurveyResponseForm, self).is_valid() and self.instance is not None
+
+    def save(self):
         if self.is_valid():
-            qd = survey.question_dict
+            qd = self.survey.question_dict
             for name, datum in self.cleaned_data.items():
                 q_id = int(name.replace(SurveyResponseForm.SURVEY_QUESTION_HTML_PREFIX, ''))
                 sqr = self.instance.get_question_response_for(qd[q_id])
                 sqr.answer = datum
                 print(sqr.answer)
                 sqr.save()
-
-    # def save(self):
-    #     self.instance.save()
-    #     for sqr in self.instance.surveyquestionresponse_set.all():
-    #         print(sqr.answer)
-    #         sqr.save()

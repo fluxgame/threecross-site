@@ -3,11 +3,8 @@ Django==3.0.6
 pytz==2020.1
 sqlparse==0.3.1
 django-recaptcha3==0.2.0
-dj-authentication==0.2.0
-django-username-email==2.3.0
 cuser~=0.0.4
-django-phonenumber-field
-phonenumberslite
+django-phone-field
 requests~=2.23.0
 django_compressor
 python-dateutil~=2.8.1
@@ -16,3 +13,4 @@ dateparser~=0.7.6
 django-autoslug~=1.9.7
 django-allauth
 django-crispy-forms
+tld

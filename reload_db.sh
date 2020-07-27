@@ -11,6 +11,7 @@ done
 ./manage migrate
 for app in $APPS
 do
+echo $app
 for fixture in $app/fixtures/*.json
 do
 ./manage loaddata $fixture

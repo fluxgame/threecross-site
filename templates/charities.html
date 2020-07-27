@@ -14,8 +14,8 @@
 	<li>Organizations are ineligible for two years following a donation.</li>
 </ul>
     <ul class="errorlist">
-    {% for error in errors %}
-        <li>{{ error }}</li>
+    {% for message in messages %}
+        {% if 'error' in message.tags %}<li>{% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}</li>{% endif %}
     {% endfor %}
     </ul>
 <table>
@@ -41,15 +41,15 @@
             </td>
         </tr>
     {% endfor %}
-        <form action="" method="post">
-            {% csrf_token %}
         <tr class="nominee">
-            <td class="nominee" colspan="2">
-                <input type="url" name="website" onblur="checkURL(this)" placeholder="Web Address of New Charity Nomination" required id="id_website">
-            </td>
-            <td><input id="nominate_button" class="button" type="submit" name="nominate_charity" value="Nominate"></td>
+            <form id="nominee" action="{% url 'nominate_charity' %}" method="post">
+                {% csrf_token %}
+                <td class="nominee" colspan="2">
+                    <input form="nominee" type="url" name="website" onblur="checkURL(this)" placeholder="Web Address of New Charity Nomination" required id="id_website">
+                </td>
+                <td><input form="nominee" id="nominate_button" class="button" type="submit" name="nominate_charity" value="Nominate"></td>
+            </form>
         </tr>
-        </form>
     </tbody>
 </table>
 {% endblock %}

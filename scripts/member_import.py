@@ -2,6 +2,9 @@ import csv
 import dateparser
 import pytz
 from datetime import datetime
+
+from allauth.account.models import EmailAddress
+
 from surveys.models import SurveyQuestion, SurveyResponse, Survey, SurveyQuestionResponse
 from users.models import User, Group
 from members.models import Member
@@ -30,12 +33,24 @@ why_question = SurveyQuestion.objects.filter(short_name='why').first()
 skills_question = SurveyQuestion.objects.filter(short_name='skills').first()
 est = pytz.timezone('US/Eastern')
 application_survey = Survey.objects.get(title='Membership Application Questions')
+charity_survey = Survey.objects.get(title='Charity of the Month')
 
 members_group = Group.objects.get(name='Consumer-Members')
 workers_group = Group.objects.get(name='Worker-Members')
 pending_group = Group.objects.get(name='Pending Applications')
 
-with open('/Users/flux/Desktop/members.csv') as csvfile:
+with open('nominations.csv') as csvfile:
+    nominations_csv = csv.reader(csvfile)
+    nominations = {}
+    for row in nominations_csv:
+        if not row[0] in nominations:
+            nominations[row[0]] = []
+
+        nominations[row[0]].append(row[1])
+
+print(nominations)
+
+with open('members.csv') as csvfile:
     member_csv = csv.reader(csvfile)
     for row in member_csv:
         if row[5] == "dave@3cross.coop":
@@ -44,6 +59,12 @@ with open('/Users/flux/Desktop/members.csv') as csvfile:
             user = User()
             user.email = row[5]
             user.save()
+
+        email = EmailAddress()
+        email.user = user
+        email.email = row[5]
+        email.verified = True
+        email.save()
 
         address = Address()
         address.user = user
@@ -62,6 +83,15 @@ with open('/Users/flux/Desktop/members.csv') as csvfile:
         if len(row[0]) > 0:
             member.number = int(row[0])
         member.save()
+
+        sr = SurveyResponse()
+        sr.user = user
+        sr.survey = charity_survey
+        sr.save()
+
+        if user.email in nominations:
+            for nomination in nominations[user.email]:
+                save_question_response(sr, SurveyQuestion.objects.filter(short_name=nomination).first(), 'Y')
 
         sr = SurveyResponse()
         sr.user = user
@@ -95,7 +125,7 @@ with open('/Users/flux/Desktop/members.csv') as csvfile:
             t.date = est.localize(dateparser.parse(row[1]))
             t.item = common_item
             t.qty = 1
-            t.amount = 150
+            t.amount = 3000 if user.email.split('@')[1] == "3cross.coop" else 150
             t.save()
             members_group.user_set.add(user)
         else:

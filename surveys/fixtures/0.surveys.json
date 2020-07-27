@@ -1,1 +1,27 @@
-[{"model": "surveys.survey", "pk": 1, "fields": {"title": "Membership Application Questions"}}]
+[
+  {
+    "model": "surveys.survey",
+    "pk": 1,
+    "fields": {
+      "title": "Membership Application Questions",
+      "slug": "membership-application-questions",
+      "real_time_results": false,
+      "max_responses": 0,
+      "template": null,
+      "ajax_template": null
+    }
+  },
+  {
+    "model": "surveys.survey",
+    "pk": 2,
+    "fields": {
+      "title": "Charity of the Month",
+      "slug": "charity-of-the-month",
+      "real_time_results": true,
+      "max_responses": 0,
+      "template": "charities.html",
+      "ajax_template": "fragments/charity_row.html",
+      "sort_questions": true
+    }
+  }
+]

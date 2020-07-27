@@ -3,6 +3,8 @@
 {% block head_title %}faq{% endblock %}
 
 {% block content %}
+<div class="row justify-content-center">
+    <div class="col">
             <h2>Frequently Asked Questions</h2>
             {% for faq in faqs %}
             <details>
@@ -10,4 +12,6 @@
                 <p>{{ faq.answer|safe }}</p>
             </details>
             {% endfor %}
+    </div>
+</div>
 {% endblock %}

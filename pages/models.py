@@ -11,3 +11,9 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Announcement(models.Model):
+    start_date = models.DateField()
+    end_date = models.DateField()
+    text = models.TextField()
