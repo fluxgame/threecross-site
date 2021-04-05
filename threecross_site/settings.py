@@ -24,15 +24,31 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+try:
+    SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+except KeyError:
+    raise ImproperlyConfigured("The DJANGO_SECRET_KEY environment variable is not set")
+
+try:
+    RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
+except KeyError:
+    raise ImproperlyConfigured("The RECAPTCHA_PRIVATE_KEY environment variable is not set")
+
+try:
+    RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
+except KeyError:
+    raise ImproperlyConfigured("The RECAPTCHA_PUBLIC_KEY environment variable is not set")
+
+try:
+    GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
+except KeyError:
+    raise ImproperlyConfigured("The GOOGLE_API_KEY environment variable is not set")
+
 if TARGET_ENV == "dev":
     DEBUG = True
 
-    SECRET_KEY = '5$1xen5n46ut=sw7nx@fh-4&9(0ukf__ww)bev8j%go5ufsmm5'
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dev.3cross.coop']
 
-    RECAPTCHA_PRIVATE_KEY = '6Lf-3vwUAAAAAJOOKAkPGVuzRbLCufOGyF1qKr6-'
-    RECAPTCHA_PUBLIC_KEY = '6Lf-3vwUAAAAAN4FHfONQWPxB95Hr49Vt6JyV-kj'
-    GOOGLE_API_KEY = 'AIzaSyDoY2wYSMdlFs_4Y3oXKYOWa8LrMeNuwK8'
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
     DATABASES = {
@@ -55,31 +71,28 @@ if TARGET_ENV == "dev":
             'level': 'DEBUG',
         },
     }
-elif TARGET_ENV == "prod" or TARGET_ENV == "stage":
+elif TARGET_ENV == 'prod':
     DEBUG = False
 
-    SECRET_KEY = '=s^n22&zed393#0l@qyq*_r$&5^xftqb7-80lcc3-5kn8xb#6q'
-    RECAPTCHA_PRIVATE_KEY = '6LcR3_wUAAAAAHGszXMSD-yh7SRM2tCUIPmqQVuL'
-    RECAPTCHA_PUBLIC_KEY = '6LcR3_wUAAAAAPIHFzHCJF82hgXe2RuZ9P-mq9mR'
-    GOOGLE_API_KEY = 'AIzaSyCFx8zzGq66Jcc2ZrgU--unLgQH7Np7s6w'
-
-    if TARGET_ENV == 'prod':
-        ALLOWED_HOSTS = ['3cross.coop']
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            }
+    ALLOWED_HOSTS = ['3cross.coop']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
-    else:
-        ALLOWED_HOSTS = ['staging.3cross.coop']
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            }
     }
+elif TARGET_ENV == 'prod':
+    DEBUG = False
 
+    ALLOWED_HOSTS = ['staging.3cross.coop']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    raise ImproperlyConfigured(f"TARGET_ENV '{TARGET_ENV}' is unknown.")
 
 
 COMPRESS_ENABLED = True
