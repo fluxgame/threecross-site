@@ -44,6 +44,11 @@ try:
 except KeyError:
     raise ImproperlyConfigured("The GOOGLE_API_KEY environment variable is not set")
 
+try:
+    SLACK_TOKEN = os.environ["SLACK_TOKEN"]
+except KeyError:
+    raise ImproperlyConfigured("The SLACK_TOKEN environment variable is not set")
+
 if TARGET_ENV == "dev":
     DEBUG = True
 
